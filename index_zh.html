@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>孙赫 | 计算科学成像</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="孙赫，北京大学生物医学工程与物理学助理教授。计算科学成像、生成式神经物理、超声CT、显微镜、天文学和逆问题AI。">
+  <!-- NOTE: Replace href="#" in CV / GitHub / Twitter / some paper links with your actual URLs. -->
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --bg-alt: #ffffff;
+      --text: #111827;
+      --muted: #4b5563;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.06);
+      --radius-lg: 14px;
+      --radius-xl: 999px;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-sans);
+      color: var(--text);
+      background: var(--bg);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(249, 250, 251, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      font-weight: 650;
+      letter-spacing: 0.03em;
+      font-size: 1.05rem;
+      white-space: nowrap;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.92rem;
+    }
+
+    nav a {
+      padding: 0.25rem 0;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem 3rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    /* Make in-page links stop a bit above the titles, accounting for sticky header */
+    #about,
+    #research,
+    #experience,
+    #publications {
+      scroll-margin-top: 80px;
+    }
+
+    /* Research cards */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .research-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .research-card:hover {
+      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.10);
+      transform: translateY(-2px);
+    }
+
+    .research-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .research-card h3 {
+      font-size: 0.92rem;
+      margin: 0;
+      padding: 0.6rem 0.85rem 0.65rem;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 0.75rem;
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      letter-spacing: 0.02em;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 0;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.35rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 1.25rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 4.2fr) minmax(0, 1.5fr);
+      gap: 2.5rem; /* spacing between text and photo */
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .title-line {
+      font-size: 0.98rem;
+      color: var(--muted);
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .hero-right {
+      text-align: right;
+    }
+
+    .profile-photo {
+      max-width: 240px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: var(--shadow-soft);
+      border: 3px solid #ffffff;
+      display: inline-block;
+    }
+
+    .contact-links {
+      margin: 0.3rem 0 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-links a {
+      margin: 0 0.25rem;
+    }
+
+    .list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.5rem 0 0;
+      font-size: 0.95rem;
+    }
+
+    .list li {
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: baseline;
+    }
+
+    .time-span {
+      font-weight: 600;
+      margin-right: 0.35rem;
+      white-space: nowrap;
+      min-width: 120px;
+      flex-shrink: 0;
+    }
+
+    /* Publications */
+    .pub-intro {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    /* Working with me banner */
+    .working-banner {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius-lg);
+      padding: 0.85rem 1.25rem;
+      margin-top: 0.1rem;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .pub-view-toggle {
+      display: inline-flex;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      padding: 0.16rem;
+      background: #f3f4f6;
+      margin-bottom: 1rem;
+    }
+
+    .pub-view-toggle button {
+      border: none;
+      background: transparent;
+      padding: 0.28rem 0.8rem;
+      border-radius: var(--radius-xl);
+      font-size: 0.82rem;
+      cursor: pointer;
+      color: var(--muted);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .pub-view-toggle button.active {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .subtopic-nav {
+      margin: 0 0 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+    }
+
+    .subtopic-nav button {
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: 0.16rem 0.7rem;
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      color: var(--muted);
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .subtopic-nav button:hover {
+      background: #e5e7eb;
+      border-color: #d1d5db;
+    }
+
+    .pub-view {
+      display: none;
+    }
+
+    .pub-view.active {
+      display: block;
+    }
+
+    .pub-group {
+      margin-bottom: 1.4rem;
+      scroll-margin-top: 80px; /* avoid sticky header covering the title */
+    }
+
+    .pub-group h3 {
+      margin-bottom: 0.45rem;
+    }
+
+    .pub-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .pub-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px dashed var(--border);
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .pub-item:last-child {
+      border-bottom: none;
+    }
+
+    .pub-teaser {
+      width: 100%;
+      max-width: 120px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #e5e7eb;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .pub-teaser img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .pub-title {
+      font-weight: 600;
+    }
+
+    .pub-meta {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .pub-meta-row {
+      margin-top: 0.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .pub-tag {
+      font-size: 0.8rem;
+      padding: 0.12rem 0.6rem;
+      border-radius: var(--radius-xl);
+      border: 1px solid #d1d5db;
+      color: #374151;
+      background: #f9fafb;
+      display: inline-block;
+    }
+
+    .pub-links a {
+      margin-right: 0.5rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        text-align: left;
+      }
+
+      .hero-right {
+        text-align: left;
+      }
+
+      .profile-photo {
+        max-width: 160px;
+      }
+
+      .pub-item {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .pub-teaser {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="brand">Computational Scientific Imaging Lab @ PKU</div>
+      <nav>
+        <ul>
+          <li><a href="#about">个人简介</a></li>
+          <li><a href="#research">研究</a></li>
+          <li><a href="#publications">论文</a></li>
+          <li><a href="#teaching">教学</a></li>
+          <li><a href="index_v12.html">EN</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- About -->
+    <section id="about">
+      <div class="hero">
+        <div class="hero-left">
+          <h1>孙赫</h1>
+          <p class="title-line">
+            <strong>助理教授、研究员、博士生导师</strong><br>
+            <strong><a href="https://future.pku.edu.cn/" target="_blank" rel="noopener">北京大学未来技术学院</a>、<a href="https://www.aais.pku.edu.cn/" target="_blank" rel="noopener">前沿交叉学科研究院</a>、<a href="https://nbic.pku.edu.cn/" target="_blank" rel="noopener">国家生物医学成像科学中心</a></strong><br>
+          </p>
+
+          <p class="tagline">
+            孙赫，<strong>北京大学生物医学工程与物理学助理教授</strong>、<strong>博雅青年学者</strong>，<strong>国家生物医学成像科学中心(NBIC)计算科学成像研究室主任</strong>。主要研究方向为<strong>自适应光学和计算成像</strong>，其实验室致力于结合前沿算法（计算物理、控制理论和AI）和硬件创新，开发新一代成像仪器，支持微纳尺度显微到天体物理现象的极端尺度科学观测。研究成果获IEEE Aerospace Conference最佳论文等学术奖项，并已应用于<strong>银河系黑洞成像</strong>、<strong>类地系外行星探测</strong>等国际大科学任务，以及<strong>超声断层、计算显微镜</strong>等多种生物医学成像技术。
+          </p>
+
+          <p class="tagline">
+            入选<strong>国家级青年人才</strong>、<strong>首届浦江青年学者</strong>、<strong>Amazon AI4Science学者</strong>，并主持<strong>国家自然科学基金面上、原创探索</strong>、<strong>科技部重点研发</strong>、<strong>北京市重点</strong>等多项省部级科研项目。
+          </p>
+
+          <div class="contact-links">
+            联系方式：<a href="mailto:hesun@pku.edu.cn">邮箱</a>
+            <a href="https://ai4scientificimaging.org" target="_blank" rel="noopener">课题组主页</a>
+            <a href="https://scholar.google.com/citations?user=c9V5HkYAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+            <a href="https://github.com/AI4ImagingLab" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://twitter.com/HeSunPKU" target="_blank" rel="noopener">Twitter</a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <img src="images/profile2.png" alt="孙赫" class="profile-photo">
+        </div>
+      </div>
+
+      <div class="working-banner">
+        <div><strong>招生</strong><br>
+        课题组长期招收本科实习生、博士/硕士研究生、博士后和访问学者。<a href="https://ai4scientificimaging.org/#/contact" target="_blank" rel="noopener">更多详情 →</a></div>
+
+        <div style="margin-top: 1rem;">
+          <strong>动态</strong><br>
+          - 2026年4月  1篇论文被ICML接收。<a href="https://ai4scientificimaging.org/VLM3D/" target="_blank" rel="noopener">VLM3D: VLM引导的高保真3D重建与生成 →</a><br>
+          - 2026年3月  孙赫获评首届浦江青年学者(表彰其在人工智能赋能科学研究相关领域的开创性探索)。<br>
+          - 2026年2月  2篇论文被CVPR接收。<a href="https://ai4scientificimaging.org/InstantViR/" target="_blank" rel="noopener">InstantViR: 35FPS实时单步扩散视频复原 →</a>，<a href="https://ai4scientificimaging.org/MARVAL-RL/" target="_blank" rel="noopener">MARVAL: 超高维图像生成模型的蒸馏与后训练 →</a><br>
+          - 2026年1月  1篇论文被IEEE TIP接收。<a href="https://ai4scientificimaging.org/LatentDEM/" target="_blank" rel="noopener">LatentDEM: 基于隐式扩散先验的盲逆问题求解 →</a>
+        </div>
+      </div>
+
+      <h2 id="experience">简历</h2>
+      <ul class="list">
+        <li>
+          <span class="time-span">2022年至今</span>
+          助理教授，生物医学工程&amp;物理学，北京大学
+        </li>
+        <li>
+          <span class="time-span">2019 &ndash; 2022</span>
+          博士后研究员，
+          加州理工大学（合作导师：Katie Bouman）
+        </li>
+        <li style="margin-top:-0.3rem;padding-left:125px;margin-bottom:0.4rem;">
+          <span style="font-size:0.88rem;color:var(--muted);">EHT成像团队核心成员，负责银河系中心黑洞成像与特征提取算法开发</span>
+        </li>
+        <li>
+          <span class="time-span">2018年夏</span>
+          研究科学家，三菱电机研究实验室（MERL）
+        </li>
+        <li>
+          <span class="time-span">2014 &ndash; 2019</span>
+          博士，控制与动力系统，
+          普林斯顿大学（导师：N. Jeremy Kasdin）
+        </li>
+        <li style="margin-top:-0.3rem;padding-left:125px;margin-bottom:0.4rem;">
+          <span style="font-size:0.88rem;color:var(--muted);">博士论文：Efficient Wavefront Sensing and Control for Space-based High-contrast Imaging</span>
+        </li>
+        <li>
+          <span class="time-span">2010 &ndash; 2014</span>
+          学士，工程力学&amp;经济学，
+          北京大学
+        </li>
+      </ul>
+    </section>
+
+    <!-- Publications -->
+    <section id="research">
+      <h2>研究</h2>
+
+      <p class="pub-intro">我的研究涵盖以下方向，更多详情请访问<a href="https://ai4scientificimaging.org/" target="_blank" rel="noopener">课题组主页</a>。</p>
+      <div class="research-grid">
+
+        <div class="research-card">
+          <img src="images/DM-gif-2020.gif"
+               alt="变形镜动画">
+          <h3>自适应光学</h3>
+        </div>
+
+        <div class="research-card">
+          <img src="images/computational_imaging.jpg"
+               alt="事件视界望远镜拍摄的M87黑洞图像">
+          <h3>计算成像</h3>
+        </div>
+
+        <div class="research-card">
+          <img src="images/computational_physics.png"
+               alt="计算光学&波动物理">
+          <h3>计算光学&amp;波动物理</h3>
+        </div>
+
+        <div class="research-card">
+          <img src="images/ai_for_science.png"
+               alt="AI + 科学"
+               style="object-fit: contain; background: #f3f4f6; padding: 1rem;">
+          <h3>AI + 科学</h3>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2>论文</h2>
+      <p class="pub-intro">
+        截至2026年，我在顶尖期刊（如 <em>Nature Astronomy</em>/<em>IEEE TPAMI</em>）和AI会议（如 <em>NeurIPS</em>/<em>ICML</em>/<em>CVPR</em>）发表100+篇论文，Google Scholar引用10,000+次。以下为部分近期代表性工作，完整列表请访问
+        <a href="https://scholar.google.com/citations?user=c9V5HkYAAAAJ"
+           target="_blank" rel="noopener">Google Scholar</a>。
+      </p>
+
+      <!-- Tabs: Highlights / by Years -->
+      <div class="pub-view-toggle">
+        <button type="button" class="active" data-view="highlights">
+          Highlights
+        </button>
+        <button type="button" data-view="years">
+          by Years
+        </button>
+      </div>
+
+      <!-- View 0: Highlights (default) -->
+      <div id="pub-highlights" class="pub-view active">
+        <!-- Astronomy & Space Science -->
+        <div class="pub-group">
+          <h3>Astronomy & Space Science</h3>
+          <ul class="pub-list">
+            <!-- 1. Black Hole Imaging (α-DPI) -->
+            <li class="pub-item">
+              <div class="pub-teaser">
+                <img src="teasers/M87.png"
+                     alt="α-DPI for black hole feature extraction">
+              </div>
+              <div class="pub-content">
+                <div class="pub-title">
+                  α-Deep Probabilistic Inference (α-DPI): Efficient Uncertainty Quantification from Exoplanet Astrometry to Black Hole Feature Extraction
+                </div>
+                <div class="pub-meta">
+                  <strong>He Sun</strong><sup>†</sup>, Katherine L. Bouman, Paul Tiede, Jason J. Wang, Sarah Blunt, Dimitri Mawet.
+                  <em>The Astrophysical Journal</em>, 2022.
+                </div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Black Hole Imaging</span>
+                  <span class="pub-tag">Bayesian Inference</span>
+                  <span class="pub-links">
+                    <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ac6be9/meta" target="_blank" rel="noopener">paper</a>
+                    <a href="http://imaging.cms.caltech.edu/dpi/" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/HeSunPU/DPI" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 2. Satellite Imaging -->
+            <li class="pub-item">
+              <div class="pub-teaser">
+                <img src="teasers/satellite_highlight.gif"
+                     alt="3D satellite reconstruction from telescope images">
+              </div>
+              <div class="pub-content">
+                <div class="pub-title">
+                  Reconstructing Satellites in 3D from Amateur Telescope Images
+                </div>
+                <div class="pub-meta">
+                  Zhiming Chang, Boyang Liu, Yifei Xia, Weimin Bai, Weimin Guo, Boxin Shi, <strong>He Sun</strong><sup>†</sup>.
+                  <em>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</em>, 2025.
+                </div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Satellite Imaging</span>
+                  <span class="pub-tag">3D Vision</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2404.18394" target="_blank" rel="noopener">paper</a>
+                    <a href="https://ai4scientificimaging.org/ReconstructingSatellites" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/AI4ImagingLab/3DSatellitesCode" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 3. High-Contrast Computational Imaging -->
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/exoplanet.png" alt="High-contrast computational imaging for astronomy"></div>
+              <div class="pub-content">
+                <div class="pub-title">Advances in High-Contrast Computational Imaging for Astronomy</div>
+                <div class="pub-meta">Bin Ren<sup>†</sup>, Kaining Yang, Ruobing Dong, <strong>He Sun</strong><sup>†</sup>. <em>Laser & Optoelectronics Progress</em>, 2026.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Exoplanet Imaging</span>
+                  <span class="pub-tag">Adaptive Optics</span>
+                  <span class="pub-links">
+                    <a href="https://www.researching.cn/articles/OJ2312bfccbeaa1dea" target="_blank" rel="noopener">paper</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Biomedicine -->
+        <div class="pub-group">
+          <h3>Biomedicine</h3>
+          <ul class="pub-list">
+            <!-- 4. EM Generalist -->
+            <li class="pub-item">
+              <div class="pub-teaser">
+                <img src="teasers/em_generalist_highlight.png"
+                     alt="EM Generalist: Physics-driven diffusion model for electron microscopy">
+              </div>
+              <div class="pub-content">
+                <div class="pub-title">
+                  EM Generalist: A Physics-Driven Diffusion Foundation Model for Electron Microscopy
+                </div>
+                <div class="pub-meta">
+                  Enze Ye, Chixiang Lu, Zixuan Jiang, Weimin Bai, Shaochi Ren, Chenyu Wang, Jinyang Zhang, Ruohua Shi, Lei Ma, Kun Song, Xiaojuan Qi, Haibo Jiang, <strong>He Sun</strong><sup>†</sup>.
+                  <em>Nature Communications</em>, under review.
+                </div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Electron Microscopy</span>
+                  <span class="pub-tag">Generative AI</span>
+                  <span class="pub-links">
+                    <a href="https://www.researchsquare.com/article/rs-6602548/v1" target="_blank" rel="noopener">paper</a>
+                    <a href="http://generativemicroscope.com" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/10cbvkw/EM_generalist" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 5. Musculoskeletal USCT -->
+            <li class="pub-item">
+              <div class="pub-teaser">
+                <img src="teasers/usct_highlight.jpg"
+                     alt="Ultrasound tomography of musculoskeletal tissues">
+              </div>
+              <div class="pub-content">
+                <div class="pub-title">
+                  Ultrasound Tomography of Musculoskeletal Tissues with Generative Neural Physics
+                </div>
+                <div class="pub-meta">
+                  Zhijun Zeng, Youjia Zheng, Chang Su, Qianhang Wu, Hao Hu, Zeyuan Dong, Shan Gao, Yang Lv, Rui Tang, Ligang Cui, Zhiyong Hou, Weijun Lin, Zuoqiang Shi<sup>†</sup>, Yubing Li<sup>†</sup>, <strong>He Sun</strong><sup>†</sup>.
+                  <em>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</em>, under review.
+                </div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Ultrasound Tomography</span>
+                  <span class="pub-tag">Neural PDE</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2508.12226" target="_blank" rel="noopener">paper</a>
+                    <a href="https://open-waves-usct.github.io/" target="_blank" rel="noopener">website</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- View 1: by Years -->
+      <div id="pub-by-years" class="pub-view">
+
+        <!-- 2026 -->
+        <div class="pub-group">
+          <h3>2026</h3>
+          <ul class="pub-list">
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/vlm3d.png" alt="VLM3D text-to-3D"></div>
+              <div class="pub-content">
+                <div class="pub-title">Let Language Constrain Geometry: Vision-Language Models as Semantic and Spatial Critics for 3D Generation</div>
+                <div class="pub-meta">Weimin Bai, Yubo Li, Weijian Luo, Zeqiang Lai, Yequan Wang, Wenzheng Chen<sup>†</sup>, <strong>He Sun</strong><sup>†</sup>. <em>ICML</em>, 2026.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">3D Vision</span>
+                  <span class="pub-tag">Vision-Language Models</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2511.14271" target="_blank" rel="noopener">paper</a>
+                    <a href="https://ai4scientificimaging.org/vlm3d" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/ai4imaging/vlm3d" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/marval.png" alt="MAVA fast RL inference"></div>
+              <div class="pub-content">
+                <div class="pub-title">Masked Auto-Regressive Variational Acceleration: Fast Inference Makes Practical Reinforcement Learning</div>
+                <div class="pub-meta">Yuxuan Gu, Weimin Bai, Yifei Wang, Weijian Luo, <strong>He Sun</strong><sup>†</sup>. <em>CVPR</em>, 2026.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Generative AI</span>
+                  <span class="pub-tag">Reinforcement Learning</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2511.15190" target="_blank" rel="noopener">paper</a>
+                    <a href="https://ai4scientificimaging.org/MARVAL-RL/" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/ai4imaging/MARVAL-RL-code" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/instantvir.png" alt="InstantViR video restoration"></div>
+              <div class="pub-content">
+                <div class="pub-title">InstantViR: Real-Time Video Inverse Problem Solver with Distilled Diffusion Prior</div>
+                <div class="pub-meta">Weimin Bai, Suzhe Xu, Yiwei Ren, Jinhua Hao, Ming Sun, Wenzheng Chen, <strong>He Sun</strong><sup>†</sup>. <em>CVPR</em>, 2026, <strong>Highlight</strong>.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Video Restoration</span>
+                  <span class="pub-tag">Diffusion Model</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2511.14208" target="_blank" rel="noopener">paper</a>
+                    <a href="https://ai4scientificimaging.org/InstantViR/" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/ai4imaging/instantvir" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/blind.png" alt="Blind inversion with latent diffusion priors"></div>
+              <div class="pub-content">
+                <div class="pub-title">Blind Inversion using Latent Diffusion Priors</div>
+                <div class="pub-meta">Weimin Bai, Siyi Chen, Wenzheng Chen<sup>†</sup>, <strong>He Sun</strong><sup>†</sup>. <em>IEEE Transactions on Image Processing (TIP)</em>, 2026.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Inverse Problems</span>
+                  <span class="pub-tag">Diffusion Model</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/pdf/2407.01027" target="_blank" rel="noopener">paper</a>
+                    <a href="https://ai4scientificimaging.org/LatentDEM/" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/AI4ImagingLab/LatentDEM" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/exoplanet.png" alt="High-contrast computational imaging for astronomy"></div>
+              <div class="pub-content">
+                <div class="pub-title">Advances in High-Contrast Computational Imaging for Astronomy</div>
+                <div class="pub-meta">Bin Ren<sup>†</sup>, Kaining Yang, Ruobing Dong, <strong>He Sun</strong><sup>†</sup>. <em>Laser & Optoelectronics Progress</em>, 2026.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Exoplanet Imaging</span>
+                  <span class="pub-tag">Adaptive Optics</span>
+                  <span class="pub-links">
+                    <a href="https://www.researching.cn/articles/OJ2312bfccbeaa1dea" target="_blank" rel="noopener">paper</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/em_generalist_highlight.png" alt="EM Generalist diffusion model"></div>
+              <div class="pub-content">
+                <div class="pub-title">EM Generalist: A Physics-Driven Diffusion Foundation Model for Electron Microscopy</div>
+                <div class="pub-meta">Enze Ye, Chixiang Lu, Zixuan Jiang, Weimin Bai, Shaochi Ren, Chenyu Wang, Jinyang Zhang, Ruohua Shi, Lei Ma, Kun Song, Xiaojuan Qi<sup>†</sup>, Haibo Jiang<sup>†</sup>, <strong>He Sun</strong><sup>†</sup>. <em>Nature Communications</em>, under review.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Electron Microscopy</span>
+                  <span class="pub-tag">Diffusion Model</span>
+                  <span class="pub-links">
+                    <a href="https://www.researchsquare.com/article/rs-6602548/v1" target="_blank" rel="noopener">paper</a>
+                    <a href="http://generativemicroscope.com" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/10cbvkw/EM_generalist" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 2025 -->
+        <div class="pub-group">
+          <h3>2025</h3>
+          <ul class="pub-list">
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/flowdas.png" alt="FlowDAS data assimilation"></div>
+              <div class="pub-content">
+                <div class="pub-title">FlowDAS: A Flow-Based Framework for Data Assimilation</div>
+                <div class="pub-meta">Siyi Chen, Yixuan Jia, Qing Qu, <strong>He Sun</strong><sup>†</sup>, Jeffrey A. Fessler. <em>NeurIPS</em>, 2025.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Data Assimilation</span>
+                  <span class="pub-tag">Generative AI</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2501.16642" target="_blank" rel="noopener">paper</a>
+                    <a href="https://github.com/AI4ImagingLab/FlowDAS" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/uniinstruct.png" alt="Uni-Instruct one-step diffusion"></div>
+              <div class="pub-content">
+                <div class="pub-title">Uni-Instruct: One-step Diffusion Model through Unified Diffusion Divergence Instruction</div>
+                <div class="pub-meta">Yifei Wang, Weimin Bai, Colin Zhang, Debing Zhang, Weijian Luo<sup>†</sup>, <strong>He Sun</strong>. <em>NeurIPS</em>, 2025.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Generative AI</span>
+                  <span class="pub-tag">Diffusion Model</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2505.20755" target="_blank" rel="noopener">paper</a>
+                    <a href="https://github.com/a-little-hoof/Uni_Instruct" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/dive3d.png" alt="Dive3D text-to-3D"></div>
+              <div class="pub-content">
+                <div class="pub-title">Dive3D: Diverse Distillation-based Text-to-3D Generation via Score Implicit Matching</div>
+                <div class="pub-meta">Weimin Bai, Yubo Li, Weijian Luo, Wenzheng Chen, <strong>He Sun</strong><sup>†</sup>. <em>TMLR</em>, 2025.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">3D Vision</span>
+                  <span class="pub-tag">Diffusion Model</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2506.13594" target="_blank" rel="noopener">paper</a>
+                    <a href="https://ai4scientificimaging.org/Dive3D/" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/AI4ImagingLab/Dive3D" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/satellite.png" alt="Satellite 3D reconstruction"></div>
+              <div class="pub-content">
+                <div class="pub-title">Reconstructing Satellites in 3D from Amateur Telescope Images</div>
+                <div class="pub-meta">Zhiming Chang, Boyang Liu, Yifei Xia, Youming Guo, Boxin Shi, <strong>He Sun</strong><sup>†</sup>. <em>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</em>, 2025.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Satellite Imaging</span>
+                  <span class="pub-tag">3D Vision</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/pdf/2404.18394" target="_blank" rel="noopener">paper</a>
+                    <a href="https://ai4scientificimaging.org/ReconstructingSatellites" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/AI4ImagingLab/3DSatellitesCode" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/decoding.png" alt="Single-shot structured light 3D imaging"></div>
+              <div class="pub-content">
+                <div class="pub-title">Robust Single-shot Structured Light 3D Imaging via Neural Feature Decoding</div>
+                <div class="pub-meta">Jiaheng Li, Qiyu Dai, Lihan Li, Praneeth Chakravarthula, <strong>He Sun</strong>, Baoquan Chen, Wenzheng Chen. <em>SIGGRAPH Asia</em>, 2025.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">3D Vision</span>
+                  <span class="pub-tag">Neural Feature Decoding</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2512.14028" target="_blank" rel="noopener">paper</a>
+                    <a href="https://namisntimpot.github.io/NSLweb/" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/Namisntimpot/NSL" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/flowodt.png" alt="Pose-free 3D quantitative phase imaging of cells"></div>
+              <div class="pub-content">
+                <div class="pub-title">Pose-Free 3D Quantitative Phase Imaging of Flowing Cellular Populations</div>
+                <div class="pub-meta">Enze Ye, Wei Lin, Shaochi Ren, Yakun Liu, Xiaoping Li, Hao Wang, <strong>He Sun</strong><sup>†</sup>, Feng Pan<sup>†</sup>. <em>arXiv</em>, 2025.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Quantitative Phase Imaging</span>
+                  <span class="pub-tag">3D Vision</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2509.04848v1" target="_blank" rel="noopener">paper</a>
+                    <a href="https://github.com/AI4ImagingLab/OmniFHT" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/openwaves.png" alt="OpenBreastUS benchmark"></div>
+              <div class="pub-content">
+                <div class="pub-title">OpenBreastUS: Benchmarking Neural Operators for Wave Imaging Using Breast Ultrasound Computed Tomography</div>
+                <div class="pub-meta">Zhijun Zeng, Youjia Zheng, Hao Hu, Zeyuan Dong, Yihang Zheng, Xinliang Liu, Jinzhuo Wang, Zuoqiang Shi, Linfeng Zhang, Yubing Li, <strong>He Sun</strong>. <em>arXiv</em>, 2025.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Ultrasound</span>
+                  <span class="pub-tag">Neural PDE</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2507.15035" target="_blank" rel="noopener">paper</a>
+                    <a href="https://ai4scientificimaging.org/OpenWaves/" target="_blank" rel="noopener">website</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/nwi.png" alt="Musculoskeletal USCT"></div>
+              <div class="pub-content">
+                <div class="pub-title">Ultrasound Tomography of Musculoskeletal Tissues with Generative Neural Physics</div>
+                <div class="pub-meta">Zhijun Zeng, Youjia Zheng, Chang Su, Qianhang Wu, Hao Hu, Zeyuan Dong, Shan Gao, Yang Lv, Rui Tang, Ligang Cui, Zhiyong Hou, Weijun Lin, Zuoqiang Shi<sup>†</sup>, Yubing Li<sup>†</sup>, <strong>He Sun</strong><sup>†</sup>. <em>arXiv</em>, 2025.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Ultrasound</span>
+                  <span class="pub-tag">Neural PDE</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2508.12226" target="_blank" rel="noopener">paper</a>
+                    <a href="https://open-waves-usct.github.io/" target="_blank" rel="noopener">website</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/empmc.png" alt="EM diffusion model from noisy measurements"></div>
+              <div class="pub-content">
+                <div class="pub-title">Learning Diffusion Model from Noisy Measurement using Principled Expectation-Maximization Method</div>
+                <div class="pub-meta">Weimin Bai, Weiheng Tang, Enze Ye, Siyi Chen, Wenzheng Chen, <strong>He Sun</strong><sup>†</sup>. <em>ICASSP</em> (Oral), 2025.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Inverse Problems</span>
+                  <span class="pub-tag">Diffusion Model</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/pdf/2410.11241?" target="_blank" rel="noopener">paper</a>
+                    <a href="https://github.com/weiminbai/EMDiffusion" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 2024 -->
+        <div class="pub-group">
+          <h3>2024</h3>
+          <ul class="pub-list">
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/emdiffusion.jpg" alt="EM algorithm for clean diffusion from corrupted data"></div>
+              <div class="pub-content">
+                <div class="pub-title">An Expectation-Maximization Algorithm for Training Clean Diffusion Models from Corrupted Observations</div>
+                <div class="pub-meta">Weimin Bai, Yifei Wang, Wenzheng Chen, <strong>He Sun</strong><sup>†</sup>. <em>NeurIPS</em>, 2024.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Inverse Problems</span>
+                  <span class="pub-tag">Diffusion Model</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2407.01014" target="_blank" rel="noopener">paper</a>
+                    <a href="https://github.com/weiminbai/EMDiffusion" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/imaging.jpg" alt="Liquid-phase electron microscopy biomacromolecules"></div>
+              <div class="pub-content">
+                <div class="pub-title">Imaging Biomacromolecules in Action with Liquid-phase Electron Microscopy</div>
+                <div class="pub-meta">Jiaye Li, <strong>He Sun</strong><sup>†</sup>, Huan Wang<sup>†</sup>. <em>Trends in Chemistry</em>, 2024.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Electron Microscopy</span>
+                  <span class="pub-tag">Liquid-phase EM</span>
+                  <span class="pub-links">
+                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S2589597424000674" target="_blank" rel="noopener">paper</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/m87.png" alt="M87 persistent shadow EHT 2024"></div>
+              <div class="pub-content">
+                <div class="pub-title">The Persistent Shadow of the Supermassive Black Hole of M87</div>
+                <div class="pub-meta">The Event Horizon Telescope Collaboration. <em>Astronomy &amp; Astrophysics</em>, 2024.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Black Hole Imaging</span>
+                  <span class="pub-tag">Interferometric Imaging</span>
+                  <span class="pub-links">
+                    <a href="https://www.aanda.org/articles/aa/full_html/2024/01/aa47932-23/aa47932-23.html" target="_blank" rel="noopener">paper</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 2023 -->
+        <div class="pub-group">
+          <h3>2023</h3>
+          <ul class="pub-list">
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/discover.png" alt="Discovering structure from corruption"></div>
+              <div class="pub-content">
+                <div class="pub-title">Discovering Structure From Corruption for Unsupervised Image Reconstruction</div>
+                <div class="pub-meta">Oscar Leong, Angela F. Gao, <strong>He Sun</strong>, Katherine L. Bouman. <em>IEEE Transactions on Computational Imaging</em>, 2023.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Inverse Problems</span>
+                  <span class="pub-tag">Unsupervised Learning</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/pdf/2304.05589" target="_blank" rel="noopener">paper</a>
+                    <a href="http://imaging.cms.caltech.edu/igm/" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/angelafgao/IGM" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/pub4.png" alt="Image reconstruction without explicit priors"></div>
+              <div class="pub-content">
+                <div class="pub-title">Image Reconstruction without Explicit Priors</div>
+                <div class="pub-meta">Oscar Leong, Angela F. Gao, <strong>He Sun</strong>, Katherine L. Bouman. <em>ICASSP</em>, 2023.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Inverse Problems</span>
+                  <span class="pub-tag">Unsupervised Learning</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/pdf/2303.12217" target="_blank" rel="noopener">paper</a>
+                    <a href="http://imaging.cms.caltech.edu/igm/" target="_blank" rel="noopener">website</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/filamentary.png" alt="Blazar jet filamentary structures EHT"></div>
+              <div class="pub-content">
+                <div class="pub-title">Filamentary Structures as the Origin of Blazar Jet Radio Variability</div>
+                <div class="pub-meta">The Event Horizon Telescope Collaboration. <em>Nature Astronomy</em>, 2023.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Black Hole Imaging</span>
+                  <span class="pub-tag">Interferometric Imaging</span>
+                  <span class="pub-links">
+                    <a href="https://www.nature.com/articles/s41550-023-02105-7" target="_blank" rel="noopener">paper</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/pub6.jpg" alt="Molecule 3D dynamics from LP-EM"></div>
+              <div class="pub-content">
+                <div class="pub-title">Recovering a Molecule's 3D Dynamics from Liquid-phase Electron Microscopy</div>
+                <div class="pub-meta">Enze Ye, Yuhang Wang, Hong Zhang, Yiqin Gao, Huan Wang, <strong>He Sun</strong><sup>†</sup>. <em>ICCV</em>, 2023.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Electron Microscopy</span>
+                  <span class="pub-tag">3D Vision</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2308.11927" target="_blank" rel="noopener">paper</a>
+                    <a href="https://ai4scientificimaging.org/tempor" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/AI4ImagingLab/tempor_code" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/pub5.jpg" alt="Single molecule dynamics LP-EM deep learning"></div>
+              <div class="pub-content">
+                <div class="pub-title">Deep Learning-Assisted Analysis of Single Molecule Dynamics from Liquid-phase Electron Microscopy</div>
+                <div class="pub-meta">Bin Cheng, Enze Ye, <strong>He Sun</strong><sup>†</sup>, Huan Wang<sup>†</sup>. <em>Chemical Communications</em>, 2023.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Electron Microscopy</span>
+                  <span class="pub-tag">3D Vision</span>
+                  <span class="pub-links">
+                    <a href="https://pubs.rsc.org/en/content/articlelanding/2023/cc/d2cc05354c" target="_blank" rel="noopener">paper</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 2022 -->
+        <div class="pub-group">
+          <h3>2022</h3>
+          <ul class="pub-list">
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/M87.png" alt="α-DPI black hole and exoplanet inference"></div>
+              <div class="pub-content">
+                <div class="pub-title">α-Deep Probabilistic Inference (α-DPI): Efficient Uncertainty Quantification from Exoplanet Astrometry to Black Hole Feature Extraction</div>
+                <div class="pub-meta"><strong>He Sun</strong><sup>†</sup>, Katherine L. Bouman, Paul Tiede, Jason J. Wang, Sarah Blunt, Dimitri Mawet. <em>The Astrophysical Journal</em>, 2022.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Black Hole Imaging</span>
+                  <span class="pub-tag">Bayesian Inference</span>
+                  <span class="pub-links">
+                    <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ac6be9/meta" target="_blank" rel="noopener">paper</a>
+                    <a href="http://imaging.cms.caltech.edu/dpi/" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/HeSunPU/DPI" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/first.png" alt="SgrA* EHT results 2022"></div>
+              <div class="pub-content">
+                <div class="pub-title">First Sagittarius A* Event Horizon Telescope Results. I–VI</div>
+                <div class="pub-meta">The Event Horizon Telescope Collaboration. <em>The Astrophysical Journal Letters</em>, 2022.<br>
+                  <small><strong>He Sun</strong> led the neural-network-based analysis of SgrA*'s variability and morphology in Paper IV, featured in the Scientific Background to the Nobel Prize in Physics 2024 as a notable AI application in astronomy.</small>
+                </div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Black Hole Imaging</span>
+                  <span class="pub-tag">EHT · SgrA*</span>
+                  <span class="pub-links">
+                    <a href="https://iopscience.iop.org/article/10.3847/2041-8213/ac6674" target="_blank" rel="noopener">Paper I</a>
+                    <a href="https://iopscience.iop.org/article/10.3847/2041-8213/ac6675" target="_blank" rel="noopener">Paper II</a>
+                    <a href="https://iopscience.iop.org/article/10.3847/2041-8213/ac6429" target="_blank" rel="noopener">Paper III</a>
+                    <a href="https://iopscience.iop.org/article/10.3847/2041-8213/ac6736" target="_blank" rel="noopener">Paper IV</a>
+                    <a href="https://iopscience.iop.org/article/10.3847/2041-8213/ac6672" target="_blank" rel="noopener">Paper V</a>
+                    <a href="https://iopscience.iop.org/article/10.3847/2041-8213/ac6756" target="_blank" rel="noopener">Paper VI</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Before PKU -->
+        <div class="pub-group">
+          <h3>Before PKU</h3>
+          <ul class="pub-list">
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/deep_prob_imaging.jpg" alt="Deep Probabilistic Imaging"></div>
+              <div class="pub-content">
+                <div class="pub-title">Deep Probabilistic Imaging: Uncertainty Quantification and Multi-modal Solution Characterization for Computational Imaging</div>
+                <div class="pub-meta"><strong>He Sun</strong><sup>†</sup>, Katherine L. Bouman. <em>AAAI</em>, 2021.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Uncertainty Quantification</span>
+                  <span class="pub-tag">Bayesian Inference</span>
+                  <span class="pub-links">
+                    <a href="https://ojs.aaai.org/index.php/AAAI/article/view/16366" target="_blank" rel="noopener">paper</a>
+                    <a href="http://imaging.cms.caltech.edu/dpi/" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/HeSunPU/DPI" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/space_ao_wfs.jpg" alt="Space-based wavefront sensing"></div>
+              <div class="pub-content">
+                <div class="pub-title">Efficient Wavefront Sensing for Space-based Adaptive Optics</div>
+                <div class="pub-meta"><strong>He Sun</strong><sup>†</sup>, N. Jeremy Kasdin, Robert Vanderbei. <em>Journal of Astronomical Telescopes, Instruments, and Systems (JATIS)</em>, 2020.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Exoplanet Imaging</span>
+                  <span class="pub-tag">Adaptive Optics</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/1909.07274" target="_blank" rel="noopener">paper</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/hcifs.jpg" alt="High-contrast integral field spectrograph"></div>
+              <div class="pub-content">
+                <div class="pub-title">High-Contrast Integral Field Spectrograph (HCIFS): Multi-spectral Wavefront Control and Reduced-dimensional System Identification</div>
+                <div class="pub-meta"><strong>He Sun</strong><sup>†</sup>, Alexei Goun, Susan Redmond, Michael Galvin, Tyler Groff, Maxime Rizzo. <em>Optics Express</em>, 2020.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Exoplanet Imaging</span>
+                  <span class="pub-tag">Hyper-spectral Imaging</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2005.09753" target="_blank" rel="noopener">paper</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/EHT.png" alt="Probabilistic sensor selection"></div>
+              <div class="pub-content">
+                <div class="pub-title">Learning a Probabilistic Strategy for Computational Imaging Sensor Selection</div>
+                <div class="pub-meta"><strong>He Sun</strong><sup>†</sup>, Adrian V. Dalca, Katherine L. Bouman. <em>ICCP</em>, 2020.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Computational Imaging</span>
+                  <span class="pub-tag">Sensor Selection</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/2003.10424" target="_blank" rel="noopener">paper</a>
+                    <a href="https://cosense.cms.caltech.edu/" target="_blank" rel="noopener">website</a>
+                    <a href="https://github.com/HeSunPU/cosense" target="_blank" rel="noopener">code</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/SPLC.png" alt="Modern wavefront control for exoplanet coronagraph"></div>
+              <div class="pub-content">
+                <div class="pub-title">Modern Wavefront Control for Space-based Exoplanet Coronagraph Imaging</div>
+                <div class="pub-meta"><strong>He Sun</strong><sup>†</sup>, Jessica Gersh-Range, N. Jeremy Kasdin. <em>IEEE Aerospace Conference</em>, 2019, <strong>Best Paper</strong>.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Exoplanet Imaging</span>
+                  <span class="pub-tag">Adaptive Optics</span>
+                  <span class="pub-links">
+                    <a href="https://collaborate.princeton.edu/en/publications/modern-wavefront-control-for-space-based-exoplanet-coronagraph-im" target="_blank" rel="noopener">paper</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-teaser"><img src="teasers/HCIL.png" alt="Focal plane wavefront control"></div>
+              <div class="pub-content">
+                <div class="pub-title">Identification and Adaptive Control of a High-contrast Focal Plane Wavefront Correction System</div>
+                <div class="pub-meta"><strong>He Sun</strong><sup>†</sup>, N. Jeremy Kasdin, Robert Vanderbei. <em>Journal of Astronomical Telescopes, Instruments, and Systems (JATIS)</em>, 2018.</div>
+                <div class="pub-meta-row">
+                  <span class="pub-tag">Exoplanet Imaging</span>
+                  <span class="pub-tag">Adaptive Optics</span>
+                  <span class="pub-links">
+                    <a href="https://arxiv.org/abs/1806.10992" target="_blank" rel="noopener">paper</a>
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+
+    </section>
+
+    <section id="teaching">
+      <h2>教学</h2>
+
+      <ul class="list">
+        <li>
+          <span class="time-span">本科生课程</span>
+          生物医学工程设计，2026年春季
+        </li>
+        <li style="margin-top:-0.3rem;padding-left:125px;margin-bottom:0.4rem;">
+          <span style="font-size:0.95rem;">生物医学工程概论，2025年秋季</span>
+        </li>
+        <li style="margin-top:-0.3rem;padding-left:125px;margin-bottom:0.4rem;">
+          <span style="font-size:0.95rem;">智能试验装置：从设计到实践，2025年秋季</span>
+        </li>
+        <li>
+          <span class="time-span">研究生课程</span>
+          反问题与计算成像，2023/2024/2025年秋季
+        </li>
+        <li style="margin-top:-0.3rem;padding-left:125px;margin-bottom:0.4rem;">
+          <span style="font-size:0.95rem;">自适应光学：原理与应用，2024年春季/2025年秋季</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 孙赫。本页面为简单静态网站；最后更新于 2026-05-05。
+  </footer>
+
+  <script>
+    // Toggle between "Highlights" and "by Years"
+    document.addEventListener('DOMContentLoaded', function () {
+      var buttons = document.querySelectorAll('.pub-view-toggle button');
+      var views = {
+        highlights: document.getElementById('pub-highlights'),
+        years: document.getElementById('pub-by-years')
+      };
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var target = btn.getAttribute('data-view');
+          if (!views[target]) return;
+
+          // Button active state
+          buttons.forEach(function (b) {
+            b.classList.toggle('active', b === btn);
+          });
+
+          // View visibility
+          Object.keys(views).forEach(function (key) {
+            views[key].classList.toggle('active', key === target);
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
